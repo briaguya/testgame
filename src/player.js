@@ -1,7 +1,8 @@
 "use strict";
 
 class Player {
-  constructor () {
+  constructor (id) {
+  	this.id = id;
   	this.name = "blarg";
   }
 }

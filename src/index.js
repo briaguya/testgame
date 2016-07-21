@@ -3,31 +3,50 @@
 import Game from "./game";
 
 var prompt = require('prompt');
+
 prompt.start();
 
 var game = new Game();
 
 function gameLoop() {
-  // First get the command
   prompt.get(['command'], function(err, result) {
     console.log('  command: ' + result.command);
+    console.log(game.players);
     var command = result.command;
-    var response = play(command);
-
-    console.log(game);
-
-    // Then send it to the game
-    if(command == 'exit') {
-      console.log('exiting');
-    } else {      
-      console.log('  response: ' + response);
-      gameLoop();
-    }
+    play(command);
   });
 }
 
 function play(command) {
-  return Game.play(game, command);
+  switch (command) {
+    case "start":
+      start();
+      break;
+    case "exit":
+      break;
+    default:
+      gameLoop();
+      break;
+  }
+}
+
+var startGameSchema = {
+  properties: {
+    numberOfPlayers: {
+        description: 'Number of Players: ',
+        type: 'integer',
+        default: '1'
+    }
+  }
+};
+
+function start() {
+  var numberOfPlayers;
+  prompt.get(startGameSchema, function(err, result) {
+    numberOfPlayers = result.numberOfPlayers;
+    game.start(numberOfPlayers);
+    gameLoop();
+  });
 }
 
 gameLoop();

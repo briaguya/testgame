@@ -6,8 +6,11 @@ var _ = require('lodash');
 
 class Game {
   constructor () {
-    this.player = new Player();
     this.deck = new Deck();
+  }
+
+  start(numberOfPlayers) {
+  	this.players = _.map(_.range(numberOfPlayers), function(id) { return new Player(id); });
   }
 
   static play(game, command) {
