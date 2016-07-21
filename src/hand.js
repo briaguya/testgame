@@ -1,8 +1,8 @@
 "use strict";
 
 class Hand {
-  constructor () {
-  	this.name = "blarg";
+  constructor (size) {
+  	this.size = size;
   }
 }
 

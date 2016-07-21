@@ -9,12 +9,22 @@ class Game {
     this.deck = new Deck();
   }
 
-  start(numberOfPlayers) {
-  	this.players = _.map(_.range(numberOfPlayers), function(id) { return new Player(id); });
+  get handSize() {
+  	if(this.numberOfPlayers == 1) return 8;
+  	if(this.numberOfPlayers == 2) return 7;
+  	return 6;
   }
 
-  static play(game, command) {
-  	return "blarg";
+  start(numberOfPlayers) {
+  	this.numberOfPlayers = numberOfPlayers;
+  	var handSize = this.handSize;
+  	this.players = _.map(_.range(numberOfPlayers), function(id) { return new Player(id, handSize); });
+  	_.forEach( function() {
+
+  	});
+  }
+
+  static deal(player) {
   }
 }
 
