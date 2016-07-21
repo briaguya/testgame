@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "knuth-shuffle": "^1.0.1",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

@@ -2,17 +2,32 @@
 
 import Game from "./game";
 
-(function () {
-  var shuffle = require('knuth-shuffle').knuthShuffle
-    , a = [2,11,37,42]
-    , b
-    ;
+var prompt = require('prompt');
+prompt.start();
 
-  var game = new Game();
+var game = new Game();
 
-  // The shuffle modifies the original array
-  // calling a.slice(0) creates a copy, which is assigned to b
-  shuffle(game.deck);
-  console.log(game.deck);
-  console.log(game.player.name);
-}());
+function gameLoop() {
+  // First get the command
+  prompt.get(['command'], function(err, result) {
+    console.log('  command: ' + result.command);
+    var command = result.command;
+    var response = play(command);
+
+    console.log(game);
+
+    // Then send it to the game
+    if(command == 'exit') {
+      console.log('exiting');
+    } else {      
+      console.log('  response: ' + response);
+      gameLoop();
+    }
+  });
+}
+
+function play(command) {
+  return Game.play(game, command);
+}
+
+gameLoop();
