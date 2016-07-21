@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-version": "babel --version",
     "start": "node lib/index.js",
     "build": "babel src -d lib"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "knuth-shuffle": "^1.0.1"
+    "knuth-shuffle": "^1.0.1",
+    "lodash": "^4.13.1"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

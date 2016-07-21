@@ -1,8 +1,12 @@
-'use strict';
+"use strict";
+
+import Player from "./player";
+var _ = require('lodash');
 
 class Game {
   constructor () {
-    this.deck = Array.from({length: 99}, (v, k) => k+1);
+    this.player = new Player();
+    this.deck = _.range(1,100);
   }
 }
 
