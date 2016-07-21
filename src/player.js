@@ -2,6 +2,8 @@
 
 import Hand from "./hand";
 
+var _ = require('lodash');
+
 class Player {
   constructor (id, handSize) {
   	this.id = id;

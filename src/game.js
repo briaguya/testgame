@@ -19,9 +19,6 @@ class Game {
   	this.numberOfPlayers = numberOfPlayers;
   	var handSize = this.handSize;
   	this.players = _.map(_.range(numberOfPlayers), function(id) { return new Player(id, handSize); });
-  	_.forEach( function() {
-
-  	});
   }
 
   static deal(player) {
